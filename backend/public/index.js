@@ -13,7 +13,7 @@ async function login() {
     };
 
     try {
-        let res = await fetch("http://localhost:3002/api/users/login", {
+        let res = await fetch("/api/users/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

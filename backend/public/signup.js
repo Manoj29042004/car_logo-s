@@ -16,7 +16,7 @@ async function signup() {
     };
 
     try {
-        let res = await fetch("http://localhost:3002/api/users/signup", {
+        let res = await fetch("/api/users/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

@@ -1,10 +1,14 @@
 const mysql = require('mysql2');
 
 const db = mysql.createConnection({
-    host: '127.0.0.1',
-    user: 'root',
-    password: 'Manoj@20040429', // Update this if your MySQL password is different
-    database: 'user_admin_db'
+    host: process.env.DB_HOST || 'mysql-16b0476-gudisevabrothers-9df8.k.aivencloud.com',
+    user: process.env.DB_USER || 'avnadmin',
+    password: process.env.DB_PASSWORD, // Must be set in Environment Variables
+    database: process.env.DB_NAME || 'defaultdb',
+    port: process.env.DB_PORT || 28294,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 db.connect((err) => {

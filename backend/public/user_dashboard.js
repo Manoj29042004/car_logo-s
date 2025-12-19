@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3002/api/content";
+const API_URL = "/api/content";
 
 document.addEventListener("DOMContentLoaded", () => {
     // Check Auth

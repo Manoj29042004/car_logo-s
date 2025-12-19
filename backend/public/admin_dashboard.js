@@ -1,5 +1,5 @@
-const USERS_API = "http://localhost:3002/api/users";
-const CONTENT_API = "http://localhost:3002/api/content";
+const USERS_API = "/api/users";
+const CONTENT_API = "/api/content";
 
 // Init
 document.addEventListener("DOMContentLoaded", () => {
