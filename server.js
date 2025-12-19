@@ -9,6 +9,7 @@ const PORT = 3002;
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(__dirname)); // Serve static files from root folder
 
 // Signup (Public - Always USER)
 app.post('/api/users/signup', (req, res) => {
