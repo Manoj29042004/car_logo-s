@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="./style.css?v=2">
+    <style>
+        .tabs {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .tabs button {
+            background: rgba(255, 255, 255, 0.2);
+            margin: 0 10px;
+        }
+
+        .tabs button.active {
+            background: #00c6ff;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        textarea {
+            width: 280px;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            margin: 8px 0;
+            font-family: inherit;
+        }
+    </style>
+</head>
+
+<body class="admin-body">
+    <button class="logout-btn" onclick="logout()">Logout</button>
+
+    <div class="tabs">
+        <button onclick="switchTab('content')" class="active">Manage Content</button>
+        <button onclick="switchTab('users')">Manage Users</button>
+    </div>
+
+    <!-- Content Management Section -->
+    <div id="content" class="section active">
+        <h2 style="text-align:center;">Manage Content (Visible to Users)</h2>
+        <div style="text-align: center; margin-top: 20px;">
+            <input type="hidden" id="c_id"><br>
+            <input type="text" placeholder="Content Title" id="c_title"><br>
+            <textarea placeholder="Description" id="c_desc" rows="3"></textarea><br>
+            <input type="text" placeholder="Image URL" id="c_image"><br>
+            <button onclick="saveContent()">Save Content</button>
+        </div>
+        <div id="content_container" class="container-grid"></div>
+    </div>
+
+    <!-- User Management Section -->
+    <div id="users" class="section">
+        <h2 style="text-align:center;">Manage Users (Auth)</h2>
+        <div style="text-align: center; margin-top: 20px;">
+            <input type="hidden" id="u_id"><br>
+            <input type="text" placeholder="Full Name" id="u_name"><br>
+            <input type="email" placeholder="Email Address" id="u_email"><br>
+            <input type="password" placeholder="Password" id="u_password"><br>
+            <!-- Image Input Removed -->
+            <select id="u_role" style="width: 280px; padding: 10px; border-radius: 6px; border:none; outline:none;">
+                <option value="USER">User</option>
+                <option value="ADMIN">Admin</option>
+            </select><br>
+            <button onclick="saveUser()">Save User</button>
+        </div>
+        <div id="user_container" class="container-grid"></div>
+    </div>
+
+    <script src="./admin_dashboard.js?v=2"></script>
+    <script>
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user || user.role !== "ADMIN") window.location.href = "index.html";
+
+        function logout() {
+            localStorage.removeItem("user");
+            window.location.href = "index.html";
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tabs button').forEach(el => el.classList.remove('active'));
+
+            document.getElementById(tab).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

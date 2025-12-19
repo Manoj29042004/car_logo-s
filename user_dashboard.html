@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+
+    <h1 style="text-align:center; margin: 20px; color:#fff;">Welcome</h1>
+    <div id="container"></div>
+
+    <script src="./user_dashboard.js"></script>
+    <script>
+        function logout() {
+            localStorage.removeItem("user");
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+
+</html>

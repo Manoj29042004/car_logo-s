@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "name": "Mercedes-Benz",
+      "image": "https://imgd.aeplcdn.com/0x0/ec/C5/A7/11148/img/m/Mercedes-Benz-logo-19780_l.jpg?q=75",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "name": "Ferrari",
+      "image": "https://pngimg.com/d/car_logo_PNG1642.png"
+    },
+    {
+      "id": "4",
+      "name": "Lamborghini",
+      "image": "https://i.pinimg.com/236x/29/fb/6a/29fb6a1ec0a5634f9c53a4de1b7397c5.jpg"
+    },
+    {
+      "id": "8729",
+      "name": "BMW",
+      "image": "https://pngimg.com/d/car_logo_PNG1641.png"
+    }
+  ]
+}
